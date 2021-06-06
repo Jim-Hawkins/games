@@ -26,7 +26,7 @@ class AlphabetSoup:
             if not found: print("Palabra {} no encontrada.".format(w))
 
     def explore_word(self, word, row, col):
-        """ method to analyze if a word begins in row, col"""
+        """ method to analyze if the letter (row, col) begins word"""
         # first of all, check if table[row][col] equals our word's first letter
         if word[0] != self.table[row][col]: return None
         # get the direction to explore the word
@@ -49,35 +49,35 @@ class AlphabetSoup:
         try:
             if self.table[row - 1][col - 1] == word[1]: return 1
         except IndexError:
-            pass
+            return None
         try:
-            if self.table[row - 1][col]     == word[1]: return 2
+            if self.table[row - 1][col] == word[1]: return 2
         except IndexError:
-            pass
+            return None
         try:
             if self.table[row - 1][col + 1] == word[1]: return 3
         except IndexError:
-            pass
+            return None
         try:
-            if self.table[row][col - 1]     == word[1]: return 4
+            if self.table[row][col - 1] == word[1]: return 4
         except IndexError:
-            pass
+            return None
         try:
-            if self.table[row][col + 1]     == word[1]: return 5
+            if self.table[row][col + 1] == word[1]: return 5
         except IndexError:
-            pass
+            return None
         try:
             if self.table[row + 1][col - 1] == word[1]: return 6
         except IndexError:
-            pass
+            return None
         try:
-            if self.table[row + 1][col]     == word[1]: return 7
+            if self.table[row + 1][col] == word[1]: return 7
         except IndexError:
-            pass
+            return None
         try:
             if self.table[row + 1][col + 1] == word[1]: return 8
         except IndexError:
-            pass
+            return None
 
     def get_next_index(self, row, col):
         if 1 == self.dir: return row - 1, col - 1
@@ -88,11 +88,3 @@ class AlphabetSoup:
         if 6 == self.dir: return row + 1, col - 1
         if 7 == self.dir: return row + 1, col
         if 8 == self.dir: return row + 1, col + 1
-
-
-tablero = [["A", "G", "U", "A"],
-           ["P", "I", "R", "T"],
-           ["N", "A", "R", "F"],
-           ["X", "Q", "S", "E"]]
-palabras = ["AIRE", "AGUA", "TIERRA", "NIU"]
-AlphabetSoup(tablero, palabras).solve()
