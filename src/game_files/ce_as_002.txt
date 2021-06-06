@@ -1,8 +1,7 @@
-4
 AGUA
 TIERRA
-NIU
-4
+N
+.
 AGUA
 PIRT
 NARF
