@@ -1,6 +1,6 @@
 from unittest import TestCase
 import csv
-from main_game import Game, AlphabetSoup, GAME_FILES
+from main_game import Game, AlphabetSoup, GAME_FILES, GameException
 
 
 class TestAlphabetSoup(TestCase):
@@ -17,11 +17,9 @@ class TestAlphabetSoup(TestCase):
                 print("Test: {} {} {}".format(row['FIELD'], row['ID TEST'], row["VALID"]))
                 if row["VALID"] == "VALID":
                     es_valido = True
-                    self.assertEqual(True, es_valido)
+                    self.assertEqual(es_valido, True)
                 else:
-                    with self.assertRaises(Exception):
+                    with self.assertRaises(GameException) as c_m:
                         self.juego1.solve_alphabet_soup(row['FILE'])
-                    # with self.assertRaises(AccessManagementException) as c_m:
-                        # OpenDoor.validate_json_stored(row["FILE"])
-                    # self.assertEqual(c_m.exception.message, row["EXPECTED RESULT"])
+                    self.assertEqual(c_m.exception.message, row["EXPECTED RESULT"])
 

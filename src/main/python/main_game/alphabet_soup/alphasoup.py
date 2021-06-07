@@ -20,7 +20,8 @@ class AlphabetSoup:
                     if found: break     # if word was found, do not keep looking
                     result = self.explore_word(w, i, j)
                     if result is not None:
-                        print("Palabra {} encontrada entre ({}, {}) y ({}, {}).".format(w, i, j, result[0], result[1]))
+                        print("Palabra {} encontrada entre ({}, {}) y ({}, {})."\
+                              .format(w, i, j, result[0], result[1]))
                         found = True
 
             if not found: print("Palabra {} no encontrada.".format(w))
@@ -80,6 +81,11 @@ class AlphabetSoup:
             return None
 
     def get_next_index(self, row, col):
+        """ gets the new coordinates from (row, col) based on the value of self.dir:
+            1 2 3      for example: if self.dir is 5, keep in the same row and
+            4 w 5      advance 1 column
+            6 7 8
+        """
         if 1 == self.dir: return row - 1, col - 1
         if 2 == self.dir: return row - 1, col
         if 3 == self.dir: return row - 1, col + 1

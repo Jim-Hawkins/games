@@ -1,5 +1,6 @@
 FIELD;VALID;ID TEST;FILE;EXPECTED RESULT
-CE_AS;INVALID;002;ce_as_002.txt;DNI is not valid
-CE_AS;INVALID;003;ce_as_002.txt;53935158D;DNI is not valid
-CE_AS;INVALID;004;ce_as_002.txt;53935158D;DNI is not valid
-CE_AS;INVALID;005;ce_as_002.txt;53935158D;DNI is not valid
+CE_AS;VALID;001;ce_as_001.txt;True
+CE_AS;INVALID;002;ce_as_002.txt;Search words must be at least two letters long.
+CE_AS;INVALID;003;ce_as_003.txt;Search words must be at least two letters long.
+CE_AS;INVALID;004;ce_as_004.txt;Incorrect table format.
+CE_AS;INVALID;005;ce_as_005.txt;Incorrect format. Game file corrupted.
