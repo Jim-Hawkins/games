@@ -1,6 +1,8 @@
 FIELD;VALID;ID TEST;FILE;EXPECTED RESULT
-CE_AS;VALID;001;ce_as_001.txt;True
+CE_AS;VALID;001;ce_as_001.txt;['Palabra AIRE encontrada entre (0, 0) y (3, 3).', 'Palabra AGUA encontrada entre (0, 0) y (0, 3).', 'Palabra TIERRA no encontrada.', 'Palabra NIU encontrada entre (2, 0) y (0, 2).']
 CE_AS;INVALID;002;ce_as_002.txt;Search words must be at least two letters long.
 CE_AS;INVALID;003;ce_as_003.txt;Search words must be at least two letters long.
 CE_AS;INVALID;004;ce_as_004.txt;Incorrect table format.
 CE_AS;INVALID;005;ce_as_005.txt;Incorrect format. Game file corrupted.
+CE_AS;INVALID;006;ce_as_006.txt;Incorrect format. Game file corrupted.
+CE_AS;INVALID;007;ce_as_007.txt;Incorrect format. Game file corrupted.

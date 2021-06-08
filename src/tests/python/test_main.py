@@ -16,8 +16,10 @@ class TestAlphabetSoup(TestCase):
             for row in param_test_cases:
                 print("Test: {} {} {}".format(row['FIELD'], row['ID TEST'], row["VALID"]))
                 if row["VALID"] == "VALID":
-                    es_valido = True
-                    self.assertEqual(es_valido, True)
+                    # need to cast list to string to make possible comparison between the
+                    # return value and the csv value
+                    results = str(self.juego1.solve_alphabet_soup(row['FILE']))
+                    self.assertEqual(results, row["EXPECTED RESULT"])
                 else:
                     with self.assertRaises(GameException) as c_m:
                         self.juego1.solve_alphabet_soup(row['FILE'])

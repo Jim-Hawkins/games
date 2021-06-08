@@ -17,7 +17,6 @@ class FileParser:
 
         for i in range(len(data)):
             data[i] = data[i].replace('\n', '')
-
         return data
 
     def _validate_file(self):
@@ -25,6 +24,8 @@ class FileParser:
         while self._content[iter] != ".":       # examine the words
             if len(self._content[iter]) < 2:
                 raise GameException("Search words must be at least two letters long.")
+            if not self._content[iter].isalpha():
+                raise GameException("Incorrect format. Game file corrupted.")
 
             iter += 1
             if iter >= len(self._content):      # no point was found and iter is out of bounds
@@ -36,7 +37,7 @@ class FileParser:
             if len(self._content[iter]) != len(self._content[reference]):
                 raise GameException("Incorrect table format.")
             if not self._content[iter].isalpha():
-                raise GameException("Incorrect table format.")
+                raise GameException("Incorrect format. Game file corrupted.")
 
             iter += 1
 
@@ -46,34 +47,11 @@ class FileParser:
         iter = 0
         while self._content[iter] != ".":
             words.append(self._content[iter])
+            iter += 1
+
         iter += 1
         while iter < len(self._content):
             board.append(self._content[iter])
+            iter += 1
 
         return words, board
-
-"""
-
-        line = ''
-        palabras = []
-        tablero = []
-        with open(GAME_FILES + game) as file:
-            while line != ".":
-                line = file.readline()[:-1]
-                if line != ".":
-                    if len(line) < 2:
-                        raise GameException("Search words must be at least two letters long.")
-                    palabras.append(line)
-
-            while line != '':
-                line = file.readline()[:-1]
-                if line != '':
-                    tablero.append(line)
-
-            if len(tablero) == 0:
-                raise GameException("Incorrect format. Game file corrupted.")
-
-            for i in range(len(tablero)):
-                if len(tablero[i]) != len(tablero[0]):      # take first line as reference for length control
-                    raise GameException("Incorrect table format.")
-"""
