@@ -1,0 +1,12 @@
+To solve a game, just select the appropriate option from the menu and choose among
+introducing the path of a file with a game or introduce one by yourself
+
+Format for creating an alphabet soup:
+
+    wordlist
+    .
+    table
+
+Remarks:
+ - each word of the wordlist in a separate line
+ - table as it would be in a paper, no spaces between letters in the same row
