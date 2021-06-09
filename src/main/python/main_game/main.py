@@ -1,3 +1,5 @@
+""" Module that centralises all the games in a single controller"""
+
 from main_game.alphabet_soup.alphasoup import AlphabetSoup
 from main_game.parser.file_parser import FileParser
 
