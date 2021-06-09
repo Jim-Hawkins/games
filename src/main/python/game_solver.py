@@ -31,4 +31,28 @@ if args.play == "cross_word":
     print("Working on it, cross word will be available soon")
 
 if args.create:
-    print("available soon", args.create)
+    title = input("Give a title for your game: ")
+    if ".txt" not in title:
+        title += ".txt"
+    game = []
+    typing = True
+    print("First, enter the wordlist, one word at a time. When you are done, enter a point (.)")
+    while typing:
+        game.append(input("Enter a word: "))
+        if game[-1] == ".":
+            typing = False
+
+    print("Now, enter the alphabet soup one line at a time. When you are done, press enter again")
+    typing = True
+    while typing:
+        line = input("Enter a line: ")
+        if line == '\n':
+            typing = False
+        else:
+            game.append(line)
+
+    print("Creating game file...")
+    with open("../../game_files" + title, "w+") as outfile:
+        for item in game:
+            outfile.write(item)
+    print("Game file created with success in the game_files folder!")
