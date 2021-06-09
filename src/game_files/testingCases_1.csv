@@ -6,3 +6,16 @@ CE_AS;INVALID;004;ce_as_004.txt;Incorrect table format.
 CE_AS;INVALID;005;ce_as_005.txt;Incorrect format. Game file corrupted.
 CE_AS;INVALID;006;ce_as_006.txt;Incorrect format. Game file corrupted.
 CE_AS;INVALID;007;ce_as_007.txt;Incorrect format. Game file corrupted.
+GR_AS;INVALID;001;gr_as_001.txt;Incorrect table format.
+GR_AS;INVALID;002;gr_as_002.txt;Incorrect format. Game file corrupted.
+GR_AS;INVALID;003;gr_as_003.txt;Incorrect format. Game file corrupted.
+GR_AS;VALID;004;gr_as_004.txt;['Palabra AIRE encontrada entre (0, 0) y (3, 3).', 'Palabra AGUA encontrada entre (0, 0) y (0, 3).', 'Palabra TIERRA no encontrada.', 'Palabra NIU encontrada entre (2, 0) y (0, 2).', 'Palabra AIRE encontrada entre (0, 0) y (3, 3).', 'Palabra AGUA encontrada entre (0, 0) y (0, 3).', 'Palabra TIERRA no encontrada.', 'Palabra NIU encontrada entre (2, 0) y (0, 2).']
+GR_AS;INVALID;005;gr_as_005.txt;Wordlist must contain at least one word.
+GR_AS;INVALID;006;gr_as_006.txt;Incorrect format. Game file corrupted.
+GR_AS;INVALID;007;gr_as_007.txt;Incorrect format. Game file corrupted.
+GR_AS;VALID;008;gr_as_008.txt;['Palabra AIRE encontrada entre (0, 0) y (3, 3).', 'Palabra AGUA encontrada entre (0, 0) y (0, 3).', 'Palabra TIERRA no encontrada.', 'Palabra NIU encontrada entre (2, 0) y (0, 2).']
+GR_AS;INVALID;009;gr_as_009.txt;Incorrect format. No table found.
+GR_AS;INVALID;010;gr_as_010.txt;Incorrect format. Game file corrupted.
+GR_AS;INVALID;011;gr_as_011.txt;Incorrect format. Game file corrupted.
+GR_AS;INVALID;012;gr_as_012.txt;Incorrect format. Game file corrupted.
+MS_AS;VALID;001;ms_as_001.txt;['Palabra ABADESA encontrada entre (8, 6) y (2, 0).', 'Palabra BALANO encontrada entre (6, 1) y (6, 6).', 'Palabra BATERIA encontrada entre (7, 9) y (1, 9).', 'Palabra BORDADO encontrada entre (3, 12) y (9, 12).', 'Palabra CIERVA encontrada entre (3, 2) y (3, 7).', 'Palabra INTERNO encontrada entre (9, 3) y (9, 9).', 'Palabra LLUVIA encontrada entre (3, 0) y (8, 0).', 'Palabra MARTY encontrada entre (5, 10) y (1, 10).', 'Palabra MINIMO encontrada entre (0, 3) y (0, 8).', 'Palabra PAJIZO encontrada entre (2, 6) y (2, 1).', 'Palabra PAÑUELO encontrada entre (1, 8) y (7, 8).', 'Palabra SCHOTTE encontrada entre (7, 11) y (1, 11).', 'Palabra SOFIA encontrada entre (4, 3) y (4, 7).', 'Palabra SOLARIS encontrada entre (10, 4) y (10, 10).']

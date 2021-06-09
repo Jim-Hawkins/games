@@ -19,9 +19,9 @@ class TestAlphabetSoup(TestCase):
                     # need to cast list to string to make possible comparison between the
                     # return value and the csv value
                     results = str(self.juego1.solve_alphabet_soup(row['FILE']))
-                    self.assertEqual(results, row["EXPECTED RESULT"])
+                    self.assertEqual(row["EXPECTED RESULT"], results)
                 else:
                     with self.assertRaises(GameException) as c_m:
                         self.juego1.solve_alphabet_soup(row['FILE'])
-                    self.assertEqual(c_m.exception.message, row["EXPECTED RESULT"])
+                    self.assertEqual(row["EXPECTED RESULT"], c_m.exception.message)
 

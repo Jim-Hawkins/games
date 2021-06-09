@@ -1,4 +1,6 @@
 from main_game.main import Game
 
 n = Game()
-n.solve_alphabet_soup("ce_as_001.txt")
+results = n.solve_alphabet_soup("ms_as_001.txt")
+for i in results:
+    print(i)

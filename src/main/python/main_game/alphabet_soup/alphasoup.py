@@ -1,4 +1,8 @@
+""" Module containing an alphabet soup-solving class"""
+
+
 class AlphabetSoup:
+    """ Class that implements an alphabet soup"""
     def __init__(self, words, table):
         """ 8 possible values for self.dir:
         1 2 3
@@ -13,20 +17,21 @@ class AlphabetSoup:
         self.__results = []
 
     def solve(self):
-        for w in self.__words:
+        """ Method that implements the algorithm to solve the alphabet soup"""
+        for word in self.__words:
             found = False
             for i in range(self.__height):
                 if found: break     # if word was found, do not keep looking
                 for j in range(self.__width):
                     if found: break     # if word was found, do not keep looking
-                    result = self.explore_word(w, i, j)
+                    result = self.explore_word(word, i, j)
                     if result is not None:
                         self.__results.append("Palabra {} encontrada entre ({}, {}) y ({}, {})."
-                                              .format(w, i, j, result[0], result[1]))
+                                              .format(word, i, j, result[0], result[1]))
                         found = True
 
             if not found:
-                self.__results.append("Palabra {} no encontrada.".format(w))
+                self.__results.append("Palabra {} no encontrada.".format(word))
 
         return self.__results
 
@@ -40,18 +45,26 @@ class AlphabetSoup:
         if len(self.__directions) == 0: return None
 
         for candidate in self.__directions:
+            # poi (principle of innocence: the word is out there until proved false)
+            poi = True
+            try_row, try_col = row, col
             for i in range(1, len(word)):
-                # get the next coords counting from (row, col)
-                row, col = self.get_next_index(candidate, row, col)
+                # get the next coordinates counting from (row, col)
+                try_row, try_col = self.get_next_index(candidate, try_row, try_col)
                 # stop seeking if the ith letter is different from the selected one in the table
                 # or if (row, col) is outside the table (remember that negative indexes are allowed)
                 try:
-                    if row < 0 or col < 0 or word[i] != self.__table[row][col]:
-                        return None
+                    if try_row < 0 or try_col < 0 or word[i] != self.__table[try_row][try_col]:
+                        poi = False
+                        break
                 except IndexError:
-                    return None
-            # if we reach the end of the word, return its finish coords
-            return row, col
+                    poi = False
+                    break
+            # if we reach the end of the word, return its finish coordinates
+            if poi:
+                return try_row, try_col
+        # if all candidates are exhausted with no results, return None
+        return None
 
     def get_dir(self, word, row, col):
         """ Fills a list with all candidates to explore.

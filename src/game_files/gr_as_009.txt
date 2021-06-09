@@ -1,0 +1,5 @@
+AIRE
+AGUA
+TIERRA
+NIU
+.
