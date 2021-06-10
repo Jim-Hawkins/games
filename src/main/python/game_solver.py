@@ -22,6 +22,7 @@ my_parser.add_argument("-c", "--create",
 args = my_parser.parse_args()
 
 n = Game()
+
 if args.play == "alphabet_soup":
     results = n.solve_alphabet_soup(args.template)
     for i in results:

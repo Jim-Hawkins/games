@@ -27,7 +27,7 @@ class AlphabetSoup:
                     result = self.explore_word(word, i, j)
                     if result is not None:
                         self.__results.append("Palabra {} encontrada entre ({}, {}) y ({}, {})."
-                                              .format(word, i, j, result[0], result[1]))
+                                              .format(word, i+1, j+1, result[0]+1, result[1]+1))
                         found = True
 
             if not found:
@@ -38,6 +38,7 @@ class AlphabetSoup:
     def explore_word(self, word, row, col):
         """ method to analyze if the letter (row, col) begins word"""
         # first of all, check if table[row][col] equals our word's first letter
+        #if word == "ABADESA": print(word[0], self.__table[row], self.__table[row][col], row, col)
         if word[0] != self.__table[row][col]: return None
 
         # get the directions to explore the word
@@ -45,7 +46,7 @@ class AlphabetSoup:
         if len(self.__directions) == 0: return None
 
         for candidate in self.__directions:
-            # poi (principle of innocence: the word is out there until proved false)
+            # poi (principle of innocence: the word is there until proved false)
             poi = True
             try_row, try_col = row, col
             for i in range(1, len(word)):
@@ -53,6 +54,7 @@ class AlphabetSoup:
                 try_row, try_col = self.get_next_index(candidate, try_row, try_col)
                 # stop seeking if the ith letter is different from the selected one in the table
                 # or if (row, col) is outside the table (remember that negative indexes are allowed)
+                # in Python, so we must check that
                 try:
                     if try_row < 0 or try_col < 0 or word[i] != self.__table[try_row][try_col]:
                         poi = False
